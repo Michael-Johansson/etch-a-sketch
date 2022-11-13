@@ -3,3 +3,24 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, #7c7c7c 0%, #ffffff 70%);
+}
+
+.container {
+  display: grid;
+  height: 800px;
+  width: 800px;
+  background-color: #ffffff;
+}
+
+.draw {
+  background-color: rgb(40, 188, 199);
+  transition: all 0.2s;
+}
