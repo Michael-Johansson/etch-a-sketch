@@ -9,9 +9,9 @@ const rainbow = document.getElementById("rainbow");
 const outline = document.getElementById("outline");
 const color = document.getElementById("color");
 const colorWrapper = document.getElementById("color-wrapper");
-const rainbowR = () => Math.round(Math.random());
-const rainbowG = () => Math.round(Math.random());
-const rainbowB = () => Math.round(Math.random());
+const rainbowR = () => Math.round(Math.random() * 255);
+const rainbowG = () => Math.round(Math.random() * 255);
+const rainbowB = () => Math.round(Math.random() * 255);
 let rainbowMode = false;
 let mouseDown = false;
 
@@ -25,9 +25,9 @@ const createGrid = (size) => {
     // This makes it possible to color a square with a click, instead of only mouseover
     div.addEventListener("mousedown", () => {
       if (rainbowMode === true) {
-        div.style.backgroundColor = `rgb(${rainbowR() * 200},
-          ${rainbowG() * 200},
-          ${rainbowB() * 200}, 0.85)`;
+        div.style.backgroundColor = `rgb(${rainbowR()},
+          ${rainbowG()},
+          ${rainbowB()}, 0.85)`;
       } else {
         div.style.backgroundColor = color.value;
       }
@@ -36,9 +36,9 @@ const createGrid = (size) => {
     div.addEventListener("mouseover", () => {
       if (mouseDown) {
         if (rainbowMode === true) {
-          div.style.backgroundColor = `rgb(${rainbowR() * 200},
-            ${rainbowG() * 200},
-            ${rainbowB() * 200}, 0.85)`;
+          div.style.backgroundColor = `rgb(${rainbowR()},
+            ${rainbowG()},
+            ${rainbowB()}, 0.85)`;
         } else {
           div.style.backgroundColor = color.value;
         }
@@ -58,16 +58,16 @@ const createGrid = (size) => {
 };
 
 // Removes original grid completely and creates a new grid based on user input
-newGrid.addEventListener("click", (gridSize) => {
-  gridSize = prompt("Choose a grid size between 1 - 64");
-  while (container.firstChild) {
-    container.removeChild(container.lastChild);
-  }
+newGrid.addEventListener("click", () => {
+  const gridSize = prompt("Choose a grid size between 1 - 64");
+
   if (gridSize > 64) {
     alert("Grid size must be between 1 - 64");
     gridInfo.textContent = "16 x 16";
+    container.innerHTML = "";
     createGrid(16);
   } else {
+    container.innerHTML = "";
     createGrid(gridSize);
     gridInfo.textContent = `${gridSize} x ${gridSize}`;
   }
