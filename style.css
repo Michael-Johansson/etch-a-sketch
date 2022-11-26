@@ -59,6 +59,10 @@ input {
   outline: 1px solid #f0f0f0;
 }
 
+#grid-info {
+  font-size: 1.5rem;
+}
+
 @media only screen and (max-width: 620px) {
   .container {
     height: 450px;
