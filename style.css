@@ -12,7 +12,8 @@ body {
   align-items: center;
   flex-direction: column;
   gap: 40px;
-  background-color: rgb(231, 231, 231);
+  background-color: #e7e7e7;
+  font-family: "Jura", sans-serif;
 }
 
 .container {
@@ -22,20 +23,60 @@ body {
   background-color: #ffffff;
   position: relative;
   box-shadow: 0px 0px 10px 1px #c2c2c2;
+  user-select: none;
+  cursor: crosshair;
 }
 
 button {
   padding: 5px 10px;
   margin: 0 5px;
   transition: all 0.1s;
+  border: 1px solid #333;
+  border-radius: 3px;
+  font-family: "Jura", sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  background-color: white;
 }
 button:hover {
-  transform: scale(1.05);
-  transition: all 0.1s;
+  transition: all 0.2s;
+  cursor: pointer;
+  box-shadow: 0px 3px 10px 1px #bbbbbb;
+}
+
+#color-wrapper {
+  padding: 5px 15px;
+  border: 1px solid black;
+  border-radius: 3px;
   cursor: pointer;
 }
 
-.draw {
-  background-color: rgb(40, 188, 199);
-  transition: all 0.2s;
+input {
+  visibility: hidden;
+}
+
+.outline {
+  outline: 1px solid #f0f0f0;
+}
+
+@media only screen and (max-width: 620px) {
+  .container {
+    height: 450px;
+    width: 450px;
+  }
+
+  .options {
+    width: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  button {
+    padding: 5px 2px;
+  }
+
+  #color-wrapper {
+    padding: 2px;
+  }
 }

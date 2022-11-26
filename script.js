@@ -1,34 +1,59 @@
 "use strict";
 
 const container = document.querySelector(".container");
-const div = document.createElement("div");
-const child = document.querySelector(".child");
 const newGrid = document.getElementById("new-grid");
 const erase = document.getElementById("erase");
 const colorPick = document.getElementById("color-pick");
 const rainbow = document.getElementById("rainbow");
+const outline = document.getElementById("outline");
 const color = document.getElementById("color");
+const colorWrapper = document.getElementById("color-wrapper");
 const rainbowR = () => Math.round(Math.random());
 const rainbowG = () => Math.round(Math.random());
 const rainbowB = () => Math.round(Math.random());
 let rainbowMode = false;
+let mouseDown = false;
+colorWrapper.addEventListener("change", () => {
+  colorWrapper.style.backgroundColor = color.value;
+})
+
 
 //Creates a grid of divs with event listeners
 const createGrid = (size) => {
   for (let i = 0; i < size * size; i++) {
     const div = document.createElement("div");
     container.append(div);
+    colorWrapper.style.backgroundColor = color.value;
 
-    div.addEventListener("mouseover", () => {
+    div.addEventListener("mousedown", () => {
       if (rainbowMode === true) {
         div.style.backgroundColor = `rgb(${rainbowR() * 200},
-        ${rainbowG() * 200},
-        ${rainbowB() * 200}, 0.85)`;
+          ${rainbowG() * 200},
+          ${rainbowB() * 200}, 0.85)`;
       } else {
         div.style.backgroundColor = color.value;
       }
+    })
+
+    div.addEventListener("mouseover", () => {
+      if (mouseDown) {
+        if (rainbowMode === true) {
+          div.style.backgroundColor = `rgb(${rainbowR() * 200},
+            ${rainbowG() * 200},
+            ${rainbowB() * 200}, 0.85)`;
+        } else {
+          div.style.backgroundColor = color.value;
+        }
+      }
+      
     });
   }
+  window.addEventListener("mousedown", () => {
+    mouseDown = true;
+  })
+  window.addEventListener("mouseup", () => {
+    mouseDown = false;
+  })
   container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
   container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
 };
@@ -47,20 +72,26 @@ newGrid.addEventListener("click", (gridSize) => {
   }
 });
 
-// Removes all colors from the grid
 erase.addEventListener("click", () => {
   container.childNodes.forEach((node) => {
     node.style.backgroundColor = "white";
   });
 });
 
-// Toggles rainbow mode
 rainbow.addEventListener("click", () => {
   if (rainbowMode) {
     rainbowMode = false;
+    rainbow.style.background = "white";
   } else if (!rainbowMode) {
     rainbowMode = true;
+    rainbow.style.background = "linear-gradient(0deg, #ff4800, #ffee00, #00ff2a, #00ccff, #0011ff)";
   }
 });
+
+outline.addEventListener("click", () => {
+  container.childNodes.forEach((node) => {
+    node.classList.toggle("outline")
+  })
+})
 
 createGrid(16);
