@@ -33,7 +33,7 @@ const createGrid = (size) => {
       }
     });
 
-    div.addEventListener("mouseover", () => {
+    div.addEventListener("mouseover", (event) => {
       if (mouseDown) {
         if (rainbowMode === true) {
           div.style.backgroundColor = `rgb(${rainbowR()},
@@ -59,9 +59,8 @@ const createGrid = (size) => {
 
 // Removes original grid completely and creates a new grid based on user input
 newGrid.addEventListener("click", () => {
-  const gridSize = prompt("Choose a grid size between 1 - 64");
-
-  if (gridSize > 64) {
+  const gridSize = Number(prompt("Choose a grid size between 1 - 64"));
+  if (gridSize > 64 || gridSize < 1 || isNaN(gridSize)) {
     alert("Grid size must be between 1 - 64");
     gridInfo.textContent = "16 x 16";
     container.innerHTML = "";
