@@ -11,4 +11,4 @@ function createGrid(gridSize) {
   }
 }
 
-createGrid(10);
+createGrid(5);

@@ -4,6 +4,14 @@
   padding: 0;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
 #container {
   border: 1px solid black;
   display: grid;
@@ -11,5 +19,37 @@
   grid-template-rows: 1fr;
   height: 700px;
   width: 700px;
-  margin: 15px;
+}
+
+.menu {
+  width: 700px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid hsl(0, 0%, 0%);
+  border-bottom: none;
+  padding-left: 15px;
+  flex-shrink: 0;
+}
+
+.buttons {
+  height: 100%;
+  display: flex;
+}
+
+.buttons > button {
+  border: none;
+  border-left: 1px solid #7c7c7c;
+  font-size: 15px;
+  width: 100px;
+  height: 100%;
+  transition: all 150ms ease-in-out;
+}
+
+.buttons > button:hover {
+  cursor: pointer;
+  background-color: #7c7c7c;
+  color: white;
+  transition: all 150ms ease-in-out;
 }
