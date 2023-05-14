@@ -4,25 +4,29 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
     <title>Etch a Sketch</title>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
   <body>
-    <div class="menu">
-      <h2>Etch a Sketch</h2>
-      <div class="buttons">
-        <button id="grid-size-btn">Grid Size</button>
-        <button>Erase</button>
-        <button>Color</button>
-        <button>Rainbow</button>
-      </div>
-    </div>
+    <h1>Etch a Sketch</h1>
     <div id="container">
-      <div class="overlay">
-        <input type="text">
-        <input type="button" value="New grid">
-      </div>
+        <div class="menu">
+          <a class="menu-button" href="">Menu</a>
+          <ul>
+            <li><a href="">Size</a></li>
+            <li><a href="">Eraser</a></li>
+            <li><a href="">Clear</a></li>
+            <li><a href="">Color</a></li>
+            <li><a href="">Rainbow</a></li>
+          </ul>
+        </div>
     </div>
   </body>
 </html>
