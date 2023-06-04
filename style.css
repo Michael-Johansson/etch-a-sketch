@@ -11,6 +11,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-color: #e5e5e5;
 }
 
 h1 {
@@ -20,66 +21,74 @@ h1 {
   padding-bottom: 25px;
 }
 
-#container {
-  border: 1px solid black;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  min-height: 700px;
-  width: 700px;
+.wrapper {
+  display: flex;
+  gap: 40px;
+  align-items: center;
   position: relative;
 }
 
-.menu-button {
-  position: absolute;
-  top: -25px;
+button {
+  padding: 5px 15px;
+  border: 1px solid #333;
+  background-color: #ffffff;
+  border-radius: 15px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
-.menu {
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  left: -210px;
-  top: 50px;
-  width: 200px;
-  height: 400px;
-  background-color: #cdc9c9;
+button:hover {
+  transform: translateX(-10px);
+  transition: all 0.2s ease-in-out;
+  background-color: #333;
+  color: #eee;
 }
 
-.menu ul {
+button.active {
+  background-color: #333;
+  color: white;
+  transition: all 250ms ease-in-out;
+}
+
+.options {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 100%;
+  justify-content: center;
+  gap: 40px;
+  position: absolute;
+  left: -150px;
 }
 
-.menu li {
-  list-style: none;
+#container {
+  border: 1px solid black;
+  display: grid;
+  min-height: 700px;
+  width: 700px;
+  background-color: white;
 }
 
-a {
-  text-decoration: none;
-  letter-spacing: 3px;
-  color: #333;
-  display: block;
-  width: fit-content;
+.cell-border {
+  border-top: 1px solid #eee;
+  border-right: 1px solid #eee;
 }
 
-a::after {
-  content: "";
-  background: #333;
-  width: 0%;
-  height: 2px;
-  display: block;
-  transition: all 0.3s ease-out;
-}
-
-a:hover::after {
-  content: "";
-  background: #333;
+#color-picker {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   width: 100%;
-  height: 2px;
-  display: block;
-  transition: all 0.3s ease-out;
+  height: 37px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+#color-picker::-webkit-color-swatch {
+  border-radius: 15px;
+  border: 1px solid #333;
+}
+#color-picker::-moz-color-swatch {
+  border-radius: 15px;
+  border: none;
 }

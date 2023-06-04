@@ -16,17 +16,17 @@
   </head>
   <body>
     <h1>Etch a Sketch</h1>
-    <div id="container">
-        <div class="menu">
-          <a class="menu-button" href="">Menu</a>
-          <ul>
-            <li><a href="">Size</a></li>
-            <li><a href="">Eraser</a></li>
-            <li><a href="">Clear</a></li>
-            <li><a href="">Color</a></li>
-            <li><a href="">Rainbow</a></li>
-          </ul>
-        </div>
+    <div class="wrapper">
+      <div class="options">
+        <input type="color" name="color" id="color-picker">
+        <button id="color-btn" class="active">Color</button>
+        <button id="size-btn">Size</button>
+        <button id="eraser-btn">Eraser</button>
+        <button id="clear-btn">Clear</button>
+        <button id="cell-border-btn">Border</button>
+        <button id="rainbow-btn">Rainbow</button>
+      </div>
+      <div id="container"></div>
     </div>
   </body>
 </html>
